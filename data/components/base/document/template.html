@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-text="title"></title>
+    <fragment data-each="styles">
+      <fragment data-include="style" />
+    </fragment>
+    <fragment data-each="scripts">
+      <fragment data-if="isHeadScript">
+        <fragment data-include="script" />
+      </fragment>
+    </fragment>
+  </head>
+  <body>
+    <div></div>
+    <fragment data-each="scripts">
+      <fragment data-not="isHeadScript">
+        <fragment data-include="script" />
+      </fragment>
+    </fragment>
+  </body>
+</html>

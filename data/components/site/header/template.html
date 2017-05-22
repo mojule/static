@@ -1,0 +1,21 @@
+<header>
+  <h1>Crozier's Turkeys</h1>
+  <fragment data-if="links">
+    <nav class="primary">
+      <ul data-each="links">
+        <li>
+          <fragment data-include="link"></fragment>
+        </li>
+      </ul>
+    </nav>
+  </fragment>
+  <fragment data-if="secondary-links">
+    <nav class="secondary">
+      <ul data-each="secondary-links">
+        <li>
+          <fragment data-include="link"></fragment>
+        </li>
+      </ul>
+    </nav>
+  </fragment>
+</header>

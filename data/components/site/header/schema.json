@@ -1,0 +1,26 @@
+{
+  "id": "header",
+  "title": "Page Header",
+  "type": "object",
+  "properties": {
+    "links": {
+      "title": "Primary Navigation Links",
+      "type": "array",
+      "items": {
+        "title": "Link",
+        "$ref": "link"
+      }
+    },
+    "secondary-links": {
+      "title": "Secondary Navigation Links",
+      "type": "array",
+      "items": {
+        "title": "Link",
+        "$ref": "link"
+      }
+    }
+  },
+  "required": [
+    "links", "secondary-links"
+  ]
+}

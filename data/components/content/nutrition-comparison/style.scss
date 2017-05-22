@@ -1,0 +1,23 @@
+.table {
+  margin: 1rem 0;
+}
+
+.table th, .table td {
+  text-align: left;
+}
+
+.table .table__cell--number {
+  text-align: right;
+}
+
+.table th, .table td {
+  padding-left: 1rem;
+}
+
+.table th:first-child, .table td:first-child {
+  padding-left: 0;
+}
+
+.table td {
+  padding-top: 0.5rem;
+}

@@ -1,0 +1,15 @@
+{
+  "id": "link",
+  "title": "Link",
+  "type": "object",
+  "properties": {
+    "title": {
+      "title": "Link Text",
+      "$ref": "non-empty-string"
+    }
+  },
+  "$ref": "source-uri",
+  "required": [
+    "title"
+  ]
+}

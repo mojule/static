@@ -1,0 +1,14 @@
+{
+  "id": "source",
+  "title": "Resource Source",
+  "oneOf": [
+    {
+      "title": "Resource as Text",
+      "$ref": "source-text"
+    },
+    {
+      "title": "Resource as URI",
+      "$ref": "source-uri"
+    }
+  ]
+}

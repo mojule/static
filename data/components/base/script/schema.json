@@ -1,0 +1,10 @@
+{
+  "id": "script",
+  "title": "Script",
+  "$ref": "html-resource",
+  "properties": {
+    "isHeadScript": {
+      "type": "boolean"
+    }
+  }
+}

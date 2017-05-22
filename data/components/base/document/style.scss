@@ -1,0 +1,16 @@
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  overflow-y: scroll;
+}
