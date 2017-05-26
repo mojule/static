@@ -1,13 +1,13 @@
 # Contact Crozier's Turkeys
 
-![Free range turkeys](img/free-range-turkeys.png)
+![Free range turkeys](/img/free-range-turkeys.png)
 
 ## Crozier's Turkeys Ltd
 
-  - Turkeyville  
-    58 Dromore Station Road  
-    RD2  
-    Ashburton  
+  - Turkeyville
+    58 Dromore Station Road
+    RD2
+    Ashburton
     New Zealand
 
   - Telephone: +64 3 3089500

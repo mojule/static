@@ -2,7 +2,7 @@
 
 ## Keeping the turkey moist during cooking
 
-![Sliced turkey](img/sliced-turkey.jpg)
+![Sliced turkey](/img/sliced-turkey.jpg)
 
 Because turkey breast meat is [so lean](#about--nutrition-and-health),
 you need to protect it from drying out during cooking. There are

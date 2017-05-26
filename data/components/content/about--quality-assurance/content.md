@@ -15,7 +15,7 @@ manufacturers use a chlorine (bleach) dip that not only sterilizes but
 also whitens and affects the taste of the final product. Ozone leaves no
 chemical by-products, tastes or smells in poultry.
 
-![Lesley Christensen-Yule, Chef](img/quality-assurance.jpg)
+![Lesley Christensen-Yule, Chef](/img/quality-assurance.jpg)
 
 Lesley Christensen-Yule, Chef
 

@@ -3,7 +3,7 @@
 What makes Crozier's Turkeys different from mass-produced and
 barn-raised turkeys?
 
-![Turkey being carved](img/difference.jpg)
+![Turkey being carved](/img/difference.jpg)
 ## Flavour
 
 Flavour in poultry is linked to lifestyle, diet and processing.

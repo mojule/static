@@ -1,6 +1,6 @@
 # The Crozier Story
 
-![Roast turkey](img/roast-turkey.jpg)
+![Roast turkey](/img/roast-turkey.jpg)
 
 ## How it started
 
@@ -18,7 +18,7 @@ children have been and continue to be part of the team. Crozier's Free-Range
 Turkey Farm is situated at Dromore, a stone's throw from Ashburton on the clean,
 green sunny plains of Mid-Canterbury in New Zealand.
 
-![Citrus turkey](img/crozier-story-citrus.jpg)
+![Citrus turkey](/img/crozier-story-citrus.jpg)
 
 ## Traditional methods
 

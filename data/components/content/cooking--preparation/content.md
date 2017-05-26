@@ -1,6 +1,6 @@
 # Preparation
 
-![Turkey being sliced](img/preparation.jpg)
+![Turkey being sliced](/img/preparation.jpg)
 
 After the Croziers have done everything to ensure the food safety of
 your turkey, it's your job to make sure that you thaw, prepare, cook and

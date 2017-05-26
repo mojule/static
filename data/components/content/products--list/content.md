@@ -1,7 +1,7 @@
 # Product List
 
-![Frozen turkey](img/frozen.jpg) ![Top down view of cooked
-turkey](img/turkey-topdown.jpg)
+![Frozen turkey](/img/frozen.jpg) ![Top down view of cooked
+turkey](/img/turkey-topdown.jpg)
 
 All items are [supplied frozen](#about--quality-assurance)
 
