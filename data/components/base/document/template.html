@@ -3,22 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-text="title"></title>
-    <fragment data-each="styles">
-      <fragment data-include="style" />
-    </fragment>
-    <fragment data-each="scripts">
-      <fragment data-if="isHeadScript">
-        <fragment data-include="script" />
-      </fragment>
-    </fragment>
+    <title string="title"></title>
+    <each name="styles" include="style" />
+    <each name="scripts" include="script" if="isHeadScript" />
   </head>
   <body>
-    <div></div>
-    <fragment data-each="scripts">
-      <fragment data-not="isHeadScript">
-        <fragment data-include="script" />
-      </fragment>
-    </fragment>
+    <div data-container></div>
+    <each name="scripts" include="script" not="isHeadScript" />
   </body>
 </html>

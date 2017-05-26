@@ -27,6 +27,7 @@
     "mocha": "^3.2.0"
   },
   "dependencies": {
+    "@mojule/components": "0.0.3",
     "@mojule/grid": "0.0.3",
     "@mojule/json-tree": "^0.5.5",
     "@mojule/mmon": "^0.1.1",
