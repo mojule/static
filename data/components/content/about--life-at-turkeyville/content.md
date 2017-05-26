@@ -1,6 +1,6 @@
 # Life at Turkeyville
 
-![Turkey hatchlings](img/hatchlings.png)
+![Turkey hatchlings](/img/hatchlings.png)
 
 ## Incubating
 
