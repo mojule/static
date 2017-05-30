@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+'use strict'
+
+const Static = require( '../dist' )
+
+const inPath = process.argv[ 2 ]
+const outPath = process.argv[ 3 ]
+
+Static( inPath, outPath, err => {
+  if( err ) return console.error( err )
+
+  console.log( 'Generation complete' )
+})

@@ -1,6 +1,6 @@
 {
   "name": "@mojule/static",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "static",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,7 @@
     "@mojule/json-tree": "^0.5.6",
     "@mojule/mmon": "^0.1.2",
     "@mojule/schema-tree": "^0.4.7",
+    "@mojule/string-tree": "^0.1.6",
     "@mojule/templating": "^0.3.4",
     "@mojule/transform": "^0.2.9",
     "@mojule/tree": "^0.6.7",

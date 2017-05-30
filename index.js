@@ -1,6 +1,6 @@
 'use strict'
 
-const Static = require( './dist' )
+const Static = require( './src' )
 
 if( !module.parent )
   Static( './data', './out', err => {
