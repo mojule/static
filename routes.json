@@ -1,0 +1,9 @@
+{
+  "routes/about/index.mmon": "document>\n  title: About Us\n  master>\n    about>",
+  "routes/contact": true,
+  "routes/cooking": true,
+  "routes/index.mmon": "document>\n  title: Home\n  header>\n  main>\n    home>\n    nutrition-comparison>\n  footer>\n",
+  "routes/products/index.mmon": "document>\n  title: Products\n  header>\n  main>\n    product-list>\n  footer>\n",
+  "routes/products/route.mmon": "document>\n  title: Products\n  header>\n  main>\n  footer>\n",
+  "routes/products/routes.json": "{\n  \"data\": \"product-list\",\n  \"item\": \"product-item\",\n  \"parent\": \"main\",\n  \"name\": \"Name\"\n}"
+}

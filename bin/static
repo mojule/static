@@ -2,7 +2,7 @@
 
 'use strict'
 
-const Static = require( '../dist' )
+const Static = require( '../src' )
 
 const inPath = process.argv[ 2 ]
 const outPath = process.argv[ 3 ]

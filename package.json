@@ -38,7 +38,7 @@
     "@mojule/tree": "^0.6.7",
     "@mojule/utils": "^0.1.13",
     "@mojule/vdom": "^0.3.12",
-    "@mojule/vfs": "^0.1.5",
+    "@mojule/vfs": "^0.1.6",
     "commonmark": "^0.27.0",
     "node-sass": "^4.5.3",
     "pify": "^3.0.0",

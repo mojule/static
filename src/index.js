@@ -11,6 +11,8 @@ const rimraf = require( 'rimraf' )
 
 const virtualize = pify( Vfs.virtualize )
 
+Vfs.registerText( '.mmon' )
+
 const createHtmlFiles = ( vfs, componentsApi ) => {
   const components = componentsApi.get()
 
