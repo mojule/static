@@ -1,8 +1,0 @@
-{
-  "src": {
-    "$if": [
-      { "$value": "uri" },
-      { "attr": [ "href", { "$value": "uri" } ] }
-    ]
-  }
-}

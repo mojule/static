@@ -27,13 +27,13 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "@mojule/components": "0.0.5",
+    "@mojule/components": "0.0.10",
     "@mojule/grid": "^0.0.6",
     "@mojule/json-tree": "^0.5.6",
     "@mojule/mmon": "^0.1.2",
     "@mojule/schema-tree": "^0.4.7",
     "@mojule/string-tree": "^0.1.6",
-    "@mojule/templating": "^0.3.4",
+    "@mojule/templating": "^0.3.7",
     "@mojule/transform": "^0.2.9",
     "@mojule/tree": "^0.6.7",
     "@mojule/utils": "^0.1.13",

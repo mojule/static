@@ -1,6 +1,5 @@
 {
   "data": "product-list",
-  "item": "product-item",
-  "parent": "main",
-  "name": "Name"
+  "component": "product-item",
+  "routeFrom": "name"
 }
