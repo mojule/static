@@ -10,7 +10,14 @@ html {
 }
 
 body {
-  background: #fff;
-  color: #000;
+  background: #eee;
+  color: #222;
   overflow-y: scroll;
+}
+
+.page {
+  margin: auto;
+  background: #fff;
+  padding: 2rem;
+  max-width: 65rem;
 }

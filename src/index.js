@@ -9,6 +9,7 @@ const utils = require( '@mojule/utils' )
 const Vfs = require( '@mojule/vfs' )
 const pify = require( 'pify' )
 const rimraf = require( 'rimraf' )
+const fs = require( 'fs' )
 
 const virtualize = pify( Vfs.virtualize )
 
@@ -120,7 +121,6 @@ const createHtmlFiles = ( vfs, componentsApi ) => {
 
     const isHome = uri === '/'
 
-
     const depth = mmonFile.ancestors().length
 
     let parent = ''
@@ -230,6 +230,9 @@ const Static = ( inpath, outpath, options = {}, callback = err => { if( err ) th
     )
     .then( vfs => {
       actualize( vfs, outpath, callback )
+    })
+    .then( () => {
+      fs.writeFileSync( 'log.txt', Tree.getLog().join('\n'), 'utf8' )
     })
     .catch( callback )
   })

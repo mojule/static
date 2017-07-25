@@ -1,0 +1,23 @@
+.header h1 {
+  margin-bottom: 2rem;
+}
+
+.header__links {
+  margin: 2rem 0;
+  margin-bottom: 0;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  li:last-child {
+    margin-right: 0;
+  }
+}

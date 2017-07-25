@@ -1,23 +1,20 @@
 .table {
-  margin: 1rem 0;
-}
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 
-.table th, .table td {
-  text-align: left;
-}
+  border-collapse: collapse;
+  margin: 2rem 0;
 
-.table .table__cell--number {
-  text-align: right;
-}
+  th, td {
+    padding: 1rem 0.5rem;
+    text-align: left;
+  }
 
-.table th, .table td {
-  padding-left: 1rem;
-}
+  .table__cell--number {
+    text-align: right;
+  }
 
-.table th:first-child, .table td:first-child {
-  padding-left: 0;
-}
-
-.table td {
-  padding-top: 0.5rem;
+  tr:nth-child( even ) {
+    background-color: #f3f3f3;
+  }
 }
