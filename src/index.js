@@ -231,9 +231,6 @@ const Static = ( inpath, outpath, options = {}, callback = err => { if( err ) th
     .then( vfs => {
       actualize( vfs, outpath, callback )
     })
-    .then( () => {
-      fs.writeFileSync( 'log.txt', Tree.getLog().join('\n'), 'utf8' )
-    })
     .catch( callback )
   })
 }

@@ -255,8 +255,6 @@ var Static = function Static(inpath, outpath) {
       return createHtmlFiles(vfs, api);
     }).then(function (vfs) {
       actualize(vfs, outpath, callback);
-    }).then(function () {
-      fs.writeFileSync('log.txt', Tree.getLog().join('\n'), 'utf8');
     }).catch(callback);
   });
 };
