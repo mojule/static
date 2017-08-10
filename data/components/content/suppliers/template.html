@@ -1,0 +1,20 @@
+<div class="fw">
+  <h1><span>Where to buy</span></h1>
+  <div class="map"></div>
+  <each name=".">
+    <div class="supplier supplier--hidden" attr="data-name=name data-lat=geoData__latitude data-lng=geoData__longitude">
+      <h2 string="name"></h2>
+      <p>
+        <string name="address__street1"></string><br />
+        <string name="address__street2"></string><br />
+        <string name="address__city"></string><br />
+        <string name="address__postcode"></string><br />
+        <string name="address__region"></string><br />
+      </p>
+      <p>
+        <i class="fa fa-phone"></i> <string name="phone"></string>
+      </p>
+    </div>
+  </each>
+</div>
+

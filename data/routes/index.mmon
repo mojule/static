@@ -1,7 +1,60 @@
 document>
-  title: Home
-  header>
+  page-header>
   main>
-    home>
-    nutrition-comparison>
-  footer>
+    page-hero>
+    copy>
+      id: the-crozier-story
+      home-story>
+    parallax>
+      classes: parallax parallax--the-best jarallax
+      id: why-our-turkeys-are-the-best
+      parallax-overlay>
+        home-the-best>
+    copy>
+      home-flavour>
+      card-grid>
+        card>
+          title: Farming
+          image-small: /img/576/birds.jpg
+          image-large: /img/1920/birds.jpg
+          card-farming>
+        card>
+          title: Feed
+          image-small: /img/576/paddock.jpg
+          image-large: /img/1920/paddock.jpg
+          card-feed>
+        card>
+          title: Processing
+          image-small: /img/576/bird-carve.jpg
+          image-large: /img/1920/bird-carve.jpg
+          card-processing>
+    parallax>
+      classes: parallax parallax--quality-assurance jarallax
+      id: quality-assurance
+      parallax-overlay>
+        home-quality-assurance>
+      circle-list>
+    copy>
+      home-recipes>
+      slider>
+        slider-slide>
+          uri: /recipes/apple-and-date/
+          image: /img/576/bird-carve.jpg
+          title: Apple and Date Stuffing
+        slider-slide>
+          uri: /recipes/cranberry-and-bacon/
+          image: /img/576/stuffing.jpg
+          title: Easy As Cranberry and Bacon Stuffing
+        slider-slide>
+          uri: /recipes/orange-and-rosemary/
+          image: /img/576/roast.jpg
+          title: Orange and Rosemary Stuffing
+        slider-slide>
+          uri: /recipes/simple-stuffing/
+          image: /img/576/roast-turkey.jpg
+          title: Simple Stuffing
+    parallax>
+      classes: quote jarallax
+      quote>
+        text: pient optatem odipis quae alit derias voluptia dempe vitas ut volupti osaerchit labori tes earum, audi aum srit aperum eum atias eturehe nde
+  page-footer>

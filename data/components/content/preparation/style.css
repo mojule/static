@@ -1,0 +1,23 @@
+.preparation-card {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: #221f20;
+  color: #fff;
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+.preparation-card h3 {
+  color: #a4a5a8;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.preparation-card h3 em {
+  color: #b18234;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.preparation-card p:last-child {
+  margin-bottom: 0;
+}

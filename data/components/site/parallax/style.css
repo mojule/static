@@ -1,0 +1,67 @@
+.parallax {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax--the-best {
+  background: url( '/img/1920/landscape.jpg' );
+}
+
+.parallax--quality-assurance {
+  background: url( '/img/1920/roast-turkey.jpg' );
+}
+
+.parallax__overlay {
+  color: #fff;
+  text-shadow: 0.25rem 0.25rem 1rem rgba( 0, 0, 0, 0.75 );
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.parallax__overlay h1, .parallax__overlay p {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+}
+
+.parallax__overlay h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.parallax__overlay p {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.parallax__overlay hr {
+  border: 0;
+  background: repeat-x bottom url( '/img/squiggle-white.svg' );
+  padding-bottom: 1rem;
+  background-size: auto 0.25rem;
+}
+
+@media print, screen and (min-width: 50em) {
+  .parallax {
+    padding: 6rem;
+  }
+
+  .parallax__overlay {
+    padding-bottom: 3rem;
+    width: 38rem;
+    margin: auto;
+  }
+
+  .parallax--quality-assurance .parallax__overlay {
+    width: 32rem;
+  }
+
+  .parallax__overlay h1 {
+    font-size: 2.875rem;
+    line-height: 1;
+    margin-top: 0.75rem;
+  }
+}

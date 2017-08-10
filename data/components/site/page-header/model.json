@@ -1,0 +1,61 @@
+{
+  "navs": [
+    {
+      "links": [
+        {
+          "uri": "/#the-crozier-story",
+          "title": "the Crozier story"
+        },
+        {
+          "uri": "/#why-our-turkeys-are-the-best",
+          "title": "why our turkeys are the best"
+        },
+        {
+          "uri": "/#quality-assurance",
+          "title": "quality assurance"
+        }
+      ]
+    },
+    {
+      "links": [
+        {
+          "uri": "/product-range/",
+          "title": "product range"
+        },
+        {
+          "uri": "/where-to-buy/",
+          "title": "where to buy"
+        },
+        {
+          "uri": "/farmers-market/",
+          "title": "farmers market"
+        }
+      ]
+    },
+    {
+      "links": [
+        {
+          "uri": "/preparation/",
+          "title": "preparation"
+        },
+        {
+          "uri": "/cooking-tips/",
+          "title": "cooking tips"
+        },
+        {
+          "uri": "/recipes/",
+          "title": "yummy recipes"
+        }
+      ]
+    },
+    {
+      "classes": "primary-navigation__important",
+      "links": [
+        {
+          "uri": "#contact",
+          "title": "get in touch"
+        }
+      ]
+    }
+  ]
+}

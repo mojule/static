@@ -1,0 +1,41 @@
+.slider {
+  margin: 0;
+  overflow: hidden;
+}
+
+.slider .slick-prev:before,
+.slider .slick-next:before {
+  color: #221f20;
+  opacity: 1;
+}
+
+@media print, screen and (min-width: 1024px) {
+  .slider .slick-prev:before,
+  .slider .slick-next:before {
+    font-size: 4rem;
+  }
+
+  .slider .slick-prev,
+  .slider .slick-next {
+    z-index: 1;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .slider .slick-prev {
+    left: 8rem;
+  }
+
+  .slider .slick-next {
+    right: 8rem;
+  }
+
+  .slider .slick-slide {
+    transition: opacity 300ms ease-in-out;
+    opacity: 0.5;
+  }
+
+  .slider .slick-center {
+    opacity: 1;
+  }
+}

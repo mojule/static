@@ -1,0 +1,25 @@
+.servings {
+  overflow: hidden;
+}
+
+.servings h2 {
+  text-align: center;
+}
+
+.servings table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.servings td, .servings th {
+  padding: 0.25rem 0;
+  text-align: left;
+}
+
+.servings td:last-child, .servings th:last-child {
+  text-align: right;
+}
+
+.servings tr:nth-child(even) {
+  background: #eee;
+}

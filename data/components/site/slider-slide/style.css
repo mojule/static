@@ -1,0 +1,38 @@
+.slider__slide {
+  margin: 0.5rem;
+}
+
+.slider__slide a {
+  display: block;
+  position: relative;
+}
+
+.slider__slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.slider__slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-shadow: 0.25rem 0.25rem 1rem rgba( 0, 0, 0, 0.75 );
+  text-align: center;
+}
+
+.slider__slide-overlay h1 {
+  margin: 0;
+  padding: 2rem 4rem;
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}

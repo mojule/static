@@ -1,0 +1,23 @@
+document>
+  page-header>
+  main>
+    copy>
+      home-recipes>
+      slider>
+        slider-slide>
+          uri: /recipes/apple-and-date/
+          image: /img/576/bird-carve.jpg
+          title: Apple and Date Stuffing
+        slider-slide>
+          uri: /recipes/cranberry-and-bacon/
+          image: /img/576/stuffing.jpg
+          title: Easy As Cranberry and Bacon Stuffing
+        slider-slide>
+          uri: /recipes/orange-and-rosemary/
+          image: /img/576/roast.jpg
+          title: Orange and Rosemary Stuffing
+        slider-slide>
+          uri: /recipes/simple-stuffing/
+          image: /img/576/roast-turkey.jpg
+          title: Simple Stuffing
+  page-footer>
