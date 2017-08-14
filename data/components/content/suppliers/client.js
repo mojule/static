@@ -1,5 +1,5 @@
 document.addEventListener( 'DOMContentLoaded', e => {
-  const suppliers = [ ...document.querySelectorAll( '.supplier' ) ]
+  const suppliers = Array.from( document.querySelectorAll( '.supplier' ) )
 
   window.initMap = () => {
     const map = new google.maps.Map( document.querySelector('.map'), {

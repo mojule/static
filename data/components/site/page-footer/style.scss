@@ -71,6 +71,32 @@
   text-decoration: none;
 }
 
+.page-footer .button {
+  background: #fff;
+  color: #221f20;
+  margin-top: 3rem;
+}
+
+.page-footer .button:hover {
+  background: #eee;
+}
+
+.page-footer .button .fa {
+  color: #3b5998;
+}
+
+.page-footer .button .fa-inverse {
+  color: #fff;
+}
+
+.page-footer .ib {
+  vertical-align: top;
+}
+
+.page-footer .ib div {
+  margin-bottom: 0.5rem;
+}
+
 @media print, screen and (min-width: 25em) {
   .page-footer {
     padding: 3rem;

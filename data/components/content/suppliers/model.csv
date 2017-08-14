@@ -1,4 +1,4 @@
-name,address__street1,address__street2,address__city,address__postCode,address__region,phone,geoData__ok,geoData__source,geoData__confidence,geoData__latitude,geoData__longitude
+name,address.street1,address.street2,address.city,address.postCode,address.region,phone,geoData.ok,geoData.source,geoData.confidence,geoData.latitude,geoData.longitude
 Akaroa Butchery,67 Rue Layand,Akaroa,Christchurch,7520,Canterbury,03 3047038,1,bing,High,-43.53100967,172.6377869
 Ashburton Trading Society,97 Burnett Street,,Ashburton,7700,Canterbury,03 3075100,1,bing,High,-43.90309,171.74631
 Banfields Of Beckenham,134 Colombo Street,Beckenham,Christchurch,8023,Canterbury,03 3326148,1,bing,High,-43.5576999,172.6371

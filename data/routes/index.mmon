@@ -39,7 +39,7 @@ document>
       slider>
         slider-slide>
           uri: /recipes/apple-and-date/
-          image: /img/576/bird-carve.jpg
+          image: /img/576/roast.jpg
           title: Apple and Date Stuffing
         slider-slide>
           uri: /recipes/cranberry-and-bacon/
@@ -47,7 +47,7 @@ document>
           title: Easy As Cranberry and Bacon Stuffing
         slider-slide>
           uri: /recipes/orange-and-rosemary/
-          image: /img/576/roast.jpg
+          image: /img/576/bird-carve.jpg
           title: Orange and Rosemary Stuffing
         slider-slide>
           uri: /recipes/simple-stuffing/
