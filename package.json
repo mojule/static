@@ -1,6 +1,6 @@
 {
   "name": "@mojule/static",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "static",
   "main": "index.js",
   "scripts": {
@@ -23,13 +23,13 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "@mojule/components": "github:mojule/components#dom",
+    "@mojule/components": "^1.0.1",
     "@mojule/dom-utils": "^0.1.2",
     "@mojule/is": "^0.1.9",
-    "@mojule/mmon": "github:mojule/mmon#1.0.0",
-    "@mojule/tree": "github:mojule/tree#1.0.0",
+    "@mojule/mmon": "^1.0.0",
+    "@mojule/tree": "^1.0.0",
     "@mojule/utils": "^0.1.14",
-    "@mojule/vfs": "github:mojule/vfs#1.0.0",
+    "@mojule/vfs": "^1.0.0",
     "jsdom": "^11.1.0",
     "pify": "^3.0.0",
     "rimraf": "^2.6.1"
