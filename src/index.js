@@ -1,191 +1,124 @@
 'use strict'
 
-const path = require( 'path' )
+let path = require( 'path' )
 const Components = require( '@mojule/components' )
+const domUtils = require( '@mojule/dom-utils' )
 const is = require( '@mojule/is' )
-const Mmon = require( '@mojule/mmon' )
+const MMON = require( '@mojule/mmon' )
 const Tree = require( '@mojule/tree' )
 const utils = require( '@mojule/utils' )
-const Vfs = require( '@mojule/vfs' )
+const VFS = require( '@mojule/vfs' )
+const jsdom = require( 'jsdom' )
 const pify = require( 'pify' )
 const rimraf = require( 'rimraf' )
 const fs = require( 'fs' )
+const TransformDocument = require( './transform-document' )
+const generateResources = require( './generate-resources' )
 
-const virtualize = pify( Vfs.virtualize )
+// browserify exports path.posix as just path
+path = path.posix || path
 
-Vfs.registerText( '.mmon' )
+const virtualize = pify( VFS.virtualize )
 
-const expandRoutes = ( vfs, componentsApi ) => {
-  const components = componentsApi.get()
-  const { getModel } = componentsApi
+const { stringify, removeAll } = domUtils
+const { ReadComponents } = Components
 
-  const routingMmonFiles = vfs.findAll( current =>
-    current.nodeType() === 'file' && current.filename() === '_route.mmon'
-  )
+const { JSDOM } = jsdom
+const dom = new JSDOM( '<!doctype>' )
+const { document } = dom.window
 
-  routingMmonFiles.forEach( file => {
-    const parent = file.getParent()
-    const mmon = Mmon.parse( file.value().data.toString( 'utf8' ) )
+const options = { document }
 
-    const config = file.siblings().find( current =>
-      current.nodeType() === 'file' && current.filename() === '_routes.json'
-    )
+const readComponents = ReadComponents( options )
+const transformDocument = TransformDocument( document )
 
-    if( !config )
-      throw new Error( '_route.mmon requires a matching _routes.json' )
+VFS.registerText( '.mmon' )
 
-    const { data, component, routeFrom } = JSON.parse( config.value().data.toString( 'utf8' ) )
+const Link = uri => {
+  const link = document.createElement( 'link' )
 
-    file.remove()
-    config.remove()
+  link.setAttribute( 'rel', 'stylesheet' )
+  link.setAttribute( 'href', uri )
 
-    const model = getModel( data )
-
-    if( !is.array( model ) )
-      throw new Error( 'Route data should be an array' )
-
-    model.forEach( item => {
-      const currentTree = Tree( utils.clone( mmon ) )
-      const componentNode = currentTree.find(
-        current => current.getValue( 'name' ) === component
-      )
-
-      const document = currentTree.find(
-        current => current.getValue( 'name' ) === 'document'
-      )
-
-      if( document ){
-        const model = document.getValue( 'model' )
-
-        model.title = item[ routeFrom ]
-
-        document.setValue( 'model', model )
-      }
-
-      componentNode.setValue( 'model', item )
-
-      const routeName = utils.identifier( item[ routeFrom ] )
-      const routeFolder = Vfs.createDirectory( routeName )
-
-      parent.add( routeFolder )
-
-      const itemTree = JSON.stringify( currentTree.get(), null, 2 )
-      const index = Vfs.createFile( 'index.json', itemTree )
-
-      routeFolder.add( index )
-    })
-  })
-
-  return vfs
+  return link
 }
 
-const createHtmlFiles = ( vfs, componentsApi ) => {
-  const components = componentsApi.get()
+const Script = uri => {
+  const script = document.createElement( 'script' )
 
-  const mmonFiles = vfs.findAll( current =>
-    current.nodeType() === 'file' &&
-    ( current.getValue( 'ext' ) === '.mmon' || current.filename() === 'index.json' )
+  script.setAttribute( 'src', uri )
+
+  return script
+}
+
+const createHtmlFiles = ( vfs, componentApi ) => {
+  const { getStyle, getClient } = componentApi
+
+  const mmonFiles = vfs.subNodes.filter( current =>
+    current.nodeName === '#file' &&
+    ( current.ext === '.mmon' || current.filename === 'index.json' )
   )
 
-  const linkMap = new Map()
+  const root = vfs.rootNode
+
+  root.value.filename = 'static'
+
+  const componentsForRoute = {}
+  const nodesForRoute = {}
 
   mmonFiles.forEach( mmonFile => {
-    const { nodeType, ext, filename, data } = mmonFile.value()
-
+    const { nodeType, ext, filename, data, parentNode } = mmonFile
+    const uri = '/' + path.posix.relative( vfs.getPath(), mmonFile.parentNode.getPath() )
+    const { name } = path.parse( filename )
     const value = data.toString( 'utf8' )
 
-    const mmon = filename === 'index.json' ? JSON.parse( value ) : Mmon.parse( value )
-    const model = Tree( mmon )
+    const mmon = filename === 'index.json' ? JSON.parse( value ) : MMON.parse( value )
+    const componentTree = Tree.deserialize( mmon )
 
-    const document = model.find(
-      current => current.getValue( 'name' ) === 'document'
-    )
+    const rendered = componentApi.render( componentTree )
 
-    let title
+    const { names, node } = rendered
 
-    const { name } = path.parse( mmonFile.getParent().filename() )
-    const slug = name
+    componentsForRoute[ uri ] = names
 
-    if( document ){
-      const model = document.getValue( 'model' )
+    const doc = transformDocument( node )
 
-      if( model.title )
-        title = model.title
+    nodesForRoute[ uri ] = {
+      name,
+      doc,
+      parentNode,
+      mmonFile
     }
-
-    if( !title ){
-      title = slug
-    }
-
-    const uri = '/' + path.posix.relative( vfs.getPath(), mmonFile.getParent().getPath() )
-
-    const isHome = uri === '/'
-
-    const depth = mmonFile.ancestors().length
-
-    let parent = ''
-
-    if( depth > 2 ){
-      const parentFilename = mmonFile.getParent().getParent().filename()
-      const { name } = path.parse( parentFilename )
-      parent = name
-    }
-
-    linkMap.set( uri, { slug, title, uri, isHome, depth, parent } )
-
-    const meta = { model, slug, title, uri, isHome, depth, parent }
-
-    mmonFile.meta( meta )
   })
 
-  const links = Array.from( linkMap.values() ).filter( l => l.depth <= 2 )
-  const secondary = Array.from( linkMap.values() ).filter( l => l.depth > 2 )
+  const routeToResources = generateResources({ componentsForRoute, vfs, getStyle, getClient })
 
-  const compare = ( a, b ) => {
-    if( a.title > b.title )
-      return -1
+  Object.keys( nodesForRoute ).forEach( uri => {
+    const { name, doc, parentNode, mmonFile } = nodesForRoute[ uri ]
 
-    if( a.title < b.title )
-      return 1
+    const head = doc.querySelector( 'head' )
+    const body = doc.querySelector( 'body' )
 
-    return 0
-  }
+    const resources = routeToResources.global.concat( routeToResources[ uri ] )
 
-  links.sort( compare ).sort( ( a, b ) => a.isHome ? -1 : 1 )
-  secondary.sort( compare )
+    resources.forEach( resource => {
+      if( !resource ) return
 
-  const root = vfs.getRoot()
+      if( resource.endsWith( 'css') ){
+        const link = Link( resource )
+        head.appendChild( link )
+      } else if( resource.endsWith( 'js' ) ){
+        const script = Script( resource )
+        body.appendChild( script )
+      }
+    })
 
-  root.setValue( 'filename', 'static' )
-
-  mmonFiles.forEach( mmonFile => {
-    const parent = mmonFile.getParent()
-    const meta = mmonFile.meta()
-    const { model, title, slug, depth } = meta
-
-    const header = model.find( current => current.getValue( 'name' ) === 'header' )
-
-    if( header ){
-      const model = header.getValue( 'model' )
-      const linksModel = { links }
-
-      const secondaryLinks = secondary.filter( l => l.parent === slug || l.depth === depth )
-
-      if( secondaryLinks.length > 0 )
-        linksModel[ 'secondary-links' ] = secondaryLinks
-
-      Object.assign( model, linksModel )
-
-      header.setValue( 'model', model )
-    }
-
-    const dom = componentsApi.dom( model )
-    const { name } = path.parse( mmonFile.getValue( 'filename' ) )
+    const html = stringify( doc )
     const htmlName = name + '.html'
-    const newFile = Vfs.createFile( htmlName, dom.stringify( { pretty: true } ) )
+    const newFile = VFS.createFile( htmlName, html )
 
-    parent.append( newFile )
-    mmonFile.remove()
+    parentNode.appendChild( newFile )
+    parentNode.removeChild( mmonFile )
   })
 
   return vfs
@@ -218,15 +151,14 @@ const Static = ( inpath, outpath, options = {}, callback = err => { if( err ) th
   const componentsPath = path.join( inpath, './components' )
   const routesPath = path.join( inpath, './routes' )
 
-  Components.read( componentsPath, ( err, api ) => {
+  readComponents( componentsPath, ( err, components ) => {
     if( err ) return callback( err )
+
+    const componentApi = Components( components, document )
 
     return virtualize( routesPath )
     .then( vfs =>
-      expandRoutes( vfs, api )
-    )
-    .then( vfs =>
-      createHtmlFiles( vfs, api )
+      createHtmlFiles( vfs, componentApi )
     )
     .then( vfs => {
       actualize( vfs, outpath, callback )
