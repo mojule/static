@@ -2,6 +2,7 @@
 
 let path = require( 'path' )
 const Components = require( '@mojule/components' )
+const ComponentTransformers = require( '@mojule/components/src/transformers' )
 const domUtils = require( '@mojule/dom-utils' )
 const is = require( '@mojule/is' )
 const MMON = require( '@mojule/mmon' )
@@ -14,6 +15,7 @@ const rimraf = require( 'rimraf' )
 const fs = require( 'fs' )
 const TransformDocument = require( './transform-document' )
 const generateResources = require( './generate-resources' )
+const Sass = require( './transformers/sass' )
 
 // browserify exports path.posix as just path
 path = path.posix || path
@@ -23,11 +25,19 @@ const virtualize = pify( VFS.virtualize )
 const { stringify, removeAll } = domUtils
 const { ReadComponents } = Components
 
+const Transformers = options => {
+  const transformers = ComponentTransformers( options )
+
+  transformers[ '.scss' ] = Sass( options )
+
+  return transformers
+}
+
 const { JSDOM } = jsdom
 const dom = new JSDOM( '<!doctype>' )
 const { document } = dom.window
 
-const options = { document }
+const options = { document, Transformers }
 
 const readComponents = ReadComponents( options )
 const transformDocument = TransformDocument( document )
