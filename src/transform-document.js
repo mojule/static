@@ -29,12 +29,15 @@ const TransformDocument = document => {
 
     const head = document.createElement( 'head' )
     const body = document.createElement( 'body' )
+    const noscript = document.createElement( 'noscript' )
 
     documentElement.appendChild( head )
     documentElement.appendChild( body )
+    body.appendChild( noscript )
 
     const componentHead = node.querySelector( 'component-head' )
     const componentBody = node.querySelector( 'component-body' )
+    const componentNoscript = node.querySelector( 'component-noscript' )
 
     if( is.string( title ) )
       doc.title = title
@@ -48,6 +51,9 @@ const TransformDocument = document => {
       while( node.firstChild )
         body.appendChild( node.firstChild )
     }
+
+    if( componentNoscript )
+      moveNode( componentNoscript, noscript )
 
     return doc
   }
