@@ -134,6 +134,43 @@ const createHtmlFiles = ( vfs, componentApi ) => {
   return vfs
 }
 
+const createServerIndex = names => `'use strict'
+
+const result = {}
+
+${
+  names.map( name =>
+    `result['${ name }'] = require( './${ name }' )`
+  ).join( '\n' )
+}
+
+module.exports = result
+`
+
+const createServerFiles = ( components, outpath ) => {
+  const serverVfs = VFS.createDirectory( 'server' )
+
+  const names = Object.keys( components )
+  const serverNames = []
+
+  names.forEach( name => {
+    const component = components[ name ]
+
+    if( component.server ){
+      const file = VFS.createFile( name + '.js', component.server )
+      serverVfs.appendChild( file )
+      serverNames.push( name )
+    }
+  })
+
+  const indexJs = createServerIndex( serverNames )
+  const index = VFS.createFile( 'index.js', indexJs )
+
+  serverVfs.appendChild( index )
+
+  return serverVfs
+}
+
 const actualize = ( vfs, outpath, callback ) => {
   vfs.actualize( outpath, err => {
     if( err && err.code === 'EEXIST' ){
@@ -146,9 +183,11 @@ const actualize = ( vfs, outpath, callback ) => {
       return
     }
 
-    callback( err )
+    callback( err, vfs )
   })
 }
+
+const write = pify( actualize )
 
 // read the routes first
 // generate a component for the routes
@@ -170,9 +209,16 @@ const Static = ( inpath, outpath, options = {}, callback = err => { if( err ) th
     .then( vfs =>
       createHtmlFiles( vfs, componentApi )
     )
-    .then( vfs => {
-      actualize( vfs, outpath, callback )
-    })
+    .then( vfs =>
+      write( vfs, outpath )
+    )
+    .then( vfs =>
+      createServerFiles( components, outpath )
+    )
+    .then( serverVfs =>
+      write( serverVfs, outpath )
+    )
+    .then( () => callback( null ) )
     .catch( callback )
   })
 }
