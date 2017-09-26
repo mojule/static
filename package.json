@@ -1,6 +1,6 @@
 {
   "name": "@mojule/static",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "static",
   "main": "index.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "mocha": "^3.4.2"
   },
   "dependencies": {
-    "@mojule/components": "^2.0.1",
+    "@mojule/components": "^2.0.2",
     "@mojule/dom-utils": "^0.1.2",
     "@mojule/is": "^0.1.9",
     "@mojule/mmon": "^1.0.0",
