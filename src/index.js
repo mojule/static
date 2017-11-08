@@ -203,7 +203,7 @@ const Static = ( inpath, outpath, options = {}, callback = err => { if( err ) th
   readComponents( componentsPath, ( err, components ) => {
     if( err ) return callback( err )
 
-    const componentApi = Components( components, document )
+    const componentApi = Components( components, { document } )
 
     return virtualize( routesPath )
     .then( vfs =>
